@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface Task {
-  id: string;
-  title: string;
-  detail: string;
-}
+import { Task, Settings } from '../../interfaces';
 
 @Component({
   selector: 'app-task-item',
@@ -12,5 +7,6 @@ interface Task {
   styleUrls: ['./task-item.component.scss'],
 })
 export class TaskItemComponent {
-  @Input() task!: Task;
+  @Input() task: Task | undefined;
+  @Input() settings!: Settings;
 }

@@ -1,2 +1,41 @@
-<app-task-item *ngFor="let task of tasks" [task]="(task)"></app-task-item>
+<div
+  class="body"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+>
+  <app-nav-menu
+    [settings]="settings"
+    [selectedBoard]="boards[selectedBoard].id"
+    [boards]="boards"
+    (boardSelected)="onBoardSelected($event)"
+  ></app-nav-menu>
+  <div>
+    <app-header
+      [settings]="settings"
+      [boardTitle]="boards[selectedBoard]?.title"
+    ></app-header>
+    <div class="main">
+      <div class="column" *ngFor="let column of boards[selectedBoard].column">
+        <div class="column__title">
+          <div
+            class="circle"
+            [ngStyle]="{ 'background-color': column.color }"
+          ></div>
+          <p>{{ column.title }} ({{ column.task.length }})</p>
+        </div>
+        <app-task-item
+          *ngFor="let task of column.task"
+          [task]="task"
+          [settings]="settings"
+        ></app-task-item>
+      </div>
+      <div class="new-column">
+        <p>+ New Column</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

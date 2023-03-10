@@ -1,1 +1,12 @@
-<p>{{ task.title }} test</p>
+<div
+  class="task-item"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+>
+  <p class="task-item__title">{{ task?.title ?? "Title Unavailable" }}</p>
+  <p class="task-item__subtitle">
+    0 of {{ task?.subTask?.length ?? 0 }} subtask
+  </p>
+</div>

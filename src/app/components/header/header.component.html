@@ -1,0 +1,11 @@
+<div
+  class="header"
+  [style.width]="settings.navMenuExpanded ? '80vw' : '100vw'"
+  [style.padding-left]="!settings.navMenuExpanded ? '15vw' : '0px'"
+>
+  <p class="header__title">{{ boardTitle }}</p>
+  <div class="header__actions">
+    <button>+ Add New Task</button>
+    <img src="assets/images/icon-vertical-ellipsis.svg" alt="actions" />
+  </div>
+</div>

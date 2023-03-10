@@ -1,0 +1,91 @@
+.body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  .main {
+    display: flex;
+    .column {
+      display: flex;
+      flex-direction: column;
+      width: 17.5rem;
+      margin: 1.5rem 0 0 1.5rem;
+      &__title {
+        display: flex;
+        margin-bottom: 24px;
+        .circle {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          margin-right: 12px;
+        }
+        p {
+          font-family: "Plus Jakarta Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 15px;
+          letter-spacing: 2.4px;
+        }
+      }
+    }
+    .new-column {
+      height: 75vh;
+      width: 17.5rem;
+      margin-top: 63px;
+      border-radius: 6px;
+      margin-left: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      p {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.darkTheme {
+  background-color: #20212c;
+  p {
+    color: #828fa3;
+  }
+  .new-column {
+    background: linear-gradient(
+      180deg,
+      rgba(43, 44, 55, 0.25) 0%,
+      rgba(43, 44, 55, 0.125) 100%
+    );
+  }
+}
+
+.lightTheme {
+  background-color: #f4f7fd;
+  p {
+    color: #828fa3;
+  }
+  .ne
+  .column {
+    &__title {
+      p {
+        color: #000112;
+      }
+    }
+  }
+  .new-column {
+    background: linear-gradient(
+      180deg,
+      #e9effa 0%,
+      rgba(233, 239, 250, 0.5) 100%
+    );
+    p {
+      color: #828fa3;
+    }
+  }
+}
