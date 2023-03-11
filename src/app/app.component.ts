@@ -14,8 +14,10 @@ export class AppComponent {
     navMenuExpanded: true,
     colorTheme: 'dark',
   };
-  boards: { [index: string]: any } = {};
-  selectedBoard: string = '0';
+  boards: { [index: string]: any } = [
+    { id: '0', title: 'Board 1', column: [] },
+  ];
+  selectedBoard: any = this.boards[0];
 
   constructor(private httpService: HttpService) {}
 
@@ -32,6 +34,7 @@ export class AppComponent {
         next: (response) => {
           if (!response) return;
           this.boards = response;
+          this.selectedBoard = this.boards[0];
         },
         error: (error) => {
           console.error(error);
@@ -43,7 +46,9 @@ export class AppComponent {
   }
 
   onBoardSelected(boardId: string) {
-    const filteredBoard = this.boards['filter']((board: Board) => board.id === boardId)[0];
+    const filteredBoard = this.boards['filter'](
+      (board: Board) => board.id === boardId
+    )[0];
     this.selectedBoard = filteredBoard;
   }
 }

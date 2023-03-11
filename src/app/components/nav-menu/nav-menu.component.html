@@ -14,12 +14,12 @@
       <p class="nav-menu__title">All Boards ({{ boards.length }})</p>
       <ul class="nav-menu__boards">
         <li
-          (click)="onBoardSelected(board.id)"
-          [ngClass]="{
-            'selected-board': selectedBoard === board.id,
-            board: selectedBoard !== board.id
-          }"
           *ngFor="let board of boards"
+          [ngClass]="{
+            'selected-board': selectedBoard.id === board.id,
+            board: selectedBoard.id !== board.id
+          }"
+          (click)="onBoardSelected(board.id)"
         >
           <img src="assets/images/icon-board.svg" alt="" />
           <p>{{ board.title }}</p>

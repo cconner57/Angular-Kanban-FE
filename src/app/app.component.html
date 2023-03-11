@@ -7,26 +7,26 @@
 >
   <app-nav-menu
     [settings]="settings"
-    [selectedBoard]="boards[selectedBoard].id"
+    [selectedBoard]="selectedBoard"
     [boards]="boards"
     (boardSelected)="onBoardSelected($event)"
   ></app-nav-menu>
   <div>
     <app-header
       [settings]="settings"
-      [boardTitle]="boards[selectedBoard]?.title"
+      [boardTitle]="selectedBoard?.title"
     ></app-header>
     <div class="main">
-      <div class="column" *ngFor="let column of boards[selectedBoard].column">
+      <div class="column" *ngFor="let list of selectedBoard.column">
         <div class="column__title">
           <div
             class="circle"
-            [ngStyle]="{ 'background-color': column.color }"
+            [ngStyle]="{ 'background-color': list.color }"
           ></div>
-          <p>{{ column.title }} ({{ column.task.length }})</p>
+          <p>{{ list.title }} ({{ list.task.length }})</p>
         </div>
         <app-task-item
-          *ngFor="let task of column.task"
+          *ngFor="let task of list.task"
           [task]="task"
           [settings]="settings"
         ></app-task-item>
