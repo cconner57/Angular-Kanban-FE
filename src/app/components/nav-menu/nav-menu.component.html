@@ -1,13 +1,19 @@
 <nav
   [ngClass]="{
     'nav-menu': settings.navMenuExpanded,
-    'nav-menu--small': !settings.navMenuExpanded
+    'nav-menu--small': !settings.navMenuExpanded,
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
   }"
 >
   <div>
     <img
       class="nav-menu__logo"
-      src="assets/images/logo-light.svg"
+      [src]="
+        settings.colorTheme === 'light'
+          ? 'assets/images/logo-dark.svg'
+          : 'assets/images/logo-light.svg'
+      "
       alt="kanban"
     />
     <div *ngIf="settings.navMenuExpanded">
@@ -19,23 +25,20 @@
             'selected-board': selectedBoard.id === board.id,
             board: selectedBoard.id !== board.id
           }"
-          (click)="onBoardSelected(board.id)"
+          (click)="onBoardSelected(board)"
         >
           <img src="assets/images/icon-board.svg" alt="" />
           <p>{{ board.title }}</p>
         </li>
       </ul>
-      <div class="nav-menu__add">
+      <div class="nav-menu__add" (click)="createNewBoard()">
         <img src="assets/images/icon-board.svg" alt="" />
         <p>+ Create New Board</p>
       </div>
     </div>
   </div>
   <div *ngIf="settings.navMenuExpanded">
-    <app-theme-toggle
-      (colorTheme)="(settings.colorTheme)"
-      (changeColorThemeEvent)="toggleColorTheme()"
-    ></app-theme-toggle>
+    <app-theme-toggle [settings]="settings"></app-theme-toggle>
     <div (click)="toggleMenu()" class="nav-menu__sidebar-toggle">
       <img src="assets/images/icon-hide-sidebar.svg" alt="hide side menu" />
       <p>Hide Sidebar</p>

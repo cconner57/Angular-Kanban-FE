@@ -1,6 +1,5 @@
 .theme-toggle {
   align-items: center;
-  background: #20212c;
   border-radius: 0.375rem;
   display: flex;
   height: 3rem;
@@ -54,11 +53,11 @@
 }
 
 input:checked + .slider {
-  background-color: #635FC7;
+  background-color: #635fc7;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #635FC7;
+  box-shadow: 0 0 1px #635fc7;
 }
 
 input:checked + .slider:before {
@@ -74,4 +73,12 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.lightTheme {
+  background: #f4f7fd;
+}
+
+.darkTheme {
+  background: #20212c;
 }

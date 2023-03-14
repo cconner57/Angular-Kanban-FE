@@ -12,7 +12,7 @@ import { Boards, Board } from './interfaces';
 export class AppComponent {
   settings = {
     navMenuExpanded: true,
-    colorTheme: 'dark',
+    colorTheme: localStorage.getItem('colorTheme') || 'light',
   };
   boards: { [index: string]: any } = [
     { id: '0', title: 'Board 1', column: [] },
@@ -45,9 +45,9 @@ export class AppComponent {
       });
   }
 
-  onBoardSelected(boardId: string) {
+  onBoardSelected(boardId: any) {
     const filteredBoard = this.boards['filter'](
-      (board: Board) => board.id === boardId
+      (board: Board) => board.id === boardId.id
     )[0];
     this.selectedBoard = filteredBoard;
   }

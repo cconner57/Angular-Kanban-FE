@@ -10,23 +10,25 @@ export class NavMenuComponent {
   @Output() boardSelected = new EventEmitter();
 
   @Input() settings!: Settings;
-  @Input() selectedBoard: any = { id: '0', name: 'Board 1' };
-  @Input() boards: any = [{ id: '0', name: 'Board 1' }];
+  @Input() selectedBoard: any = { id: '0', title: 'Board 1' };
+  @Input() boards: any = [{ id: '0', title: 'Board 1' }];
 
-  onBoardSelected(boardId: string): void {
+  onBoardSelected(activeBoard: string): void {
     try {
-      const filteredBoard = this.boards.filter(
-        (item: any) => boardId === item.id
-      )[0];
-      this.boardSelected.emit(filteredBoard);
+      this.boardSelected.emit(activeBoard);
     } catch (e) {
       console.error('Error selecting board', e);
     }
   }
 
-  toggleColorTheme() {
-    this.settings.colorTheme =
-      this.settings.colorTheme === 'light' ? 'dark' : 'light';
+  createNewBoard() {
+    const newBoard = {
+      id: Math.floor(Math.random() * 10),
+      title: 'New Board',
+      column: [],
+    };
+    this.boards.push(newBoard);
+    this.boardSelected.emit(newBoard);
   }
 
   toggleMenu() {

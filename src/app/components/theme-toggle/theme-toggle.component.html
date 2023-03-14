@@ -1,10 +1,16 @@
-<div class="theme-toggle">
+<div
+  class="theme-toggle"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+>
   <img src="assets/images/icon-light-theme.svg" alt="light theme" />
   <label class="switch">
     <input
       type="checkbox"
       (click)="changeColorTheme()"
-      [checked]="colorTheme === 'light'"
+      [checked]="settings.colorTheme === 'dark'"
     />
     <span class="slider round"></span>
   </label>

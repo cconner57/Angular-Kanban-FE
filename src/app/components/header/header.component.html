@@ -1,5 +1,9 @@
 <div
   class="header"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
   [style.width]="settings.navMenuExpanded ? '80vw' : '100vw'"
   [style.padding-left]="!settings.navMenuExpanded ? '15vw' : '0px'"
 >

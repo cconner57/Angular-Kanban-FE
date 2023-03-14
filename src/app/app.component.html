@@ -17,25 +17,31 @@
       [boardTitle]="selectedBoard?.title"
     ></app-header>
     <div class="main">
-      <div class="column" *ngFor="let list of selectedBoard.column">
-        <div class="column__title">
-          <div
-            class="circle"
-            [ngStyle]="{ 'background-color': list.color }"
-          ></div>
-          <p>{{ list.title }} ({{ list.task.length }})</p>
+      <ng-container *ngIf="selectedBoard.column.length > 0; else noTask">
+        <div class="column" *ngFor="let list of selectedBoard.column">
+          <div class="column__title">
+            <div
+              class="circle"
+              [ngStyle]="{ 'background-color': list.color }"
+            ></div>
+            <p>{{ list?.title }} ({{ list?.task?.length }})</p>
+          </div>
+          <app-task-item
+            *ngFor="let task of list?.task"
+            [task]="task"
+            [settings]="settings"
+          ></app-task-item>
         </div>
-        <app-task-item
-          *ngFor="let task of list.task"
-          [task]="task"
-          [settings]="settings"
-        ></app-task-item>
-      </div>
-      <div class="new-column">
+      </ng-container>
+      <div class="new-column" *ngIf="selectedBoard.column.length > 0">
         <p>+ New Column</p>
       </div>
+      <ng-template #noTask>
+        <div class="empty-board">
+          <p>This board is empty. Create a new column to get started.</p>
+          <button>+ Add New Column</button>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
-
-<router-outlet></router-outlet>

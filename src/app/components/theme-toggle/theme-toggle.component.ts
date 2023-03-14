@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Settings } from 'src/app/interfaces/settings';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -6,13 +7,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./theme-toggle.component.scss'],
 })
 export class ThemeToggleComponent {
+  @Input() settings!: Settings;
   @Input() colorTheme!: string;
   @Input() toggleColorTheme!: () => void;
 
-  @Output() changeColorThemeEvent = new EventEmitter<void>();
-
   changeColorTheme() {
-    console.log('func ran');
-    this.changeColorThemeEvent.emit();
+    this.settings.colorTheme =
+      this.settings.colorTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('colorTheme', this.settings.colorTheme);
   }
 }
