@@ -1,0 +1,53 @@
+<div class="modal-edit" (click)="onClickDefault($event)">
+  <div class="task-header">
+    <h5>Add New Board</h5>
+    <img
+      src="assets/images/icon-vertical-ellipsis.svg"
+      alt="actions"
+      (mouseenter)="toggleHeaderMenu(true)"
+    />
+    <div
+      class="header__menu"
+      *ngIf="showHeaderMenu"
+      (mouseleave)="toggleHeaderMenu(false)"
+    >
+      <p (click)="openEditBoardModal()">Edit board</p>
+      <p (click)="openDeleteModal()">Delete board</p>
+    </div>
+  </div>
+  <h6>
+    We know what we're planning to build for version one. Now we need to
+    finalise the first pricing model we'll use. Keep iterating the subtasks
+    until we have a coherent proposition.
+  </h6>
+  <div class="subtask-list">
+    <p>Subtasks (2 of 3)</p>
+    <div class="subtask">
+      <input type="checkbox" id="checkbox1" />
+      <label for="checkbox1"
+        >Research competitor pricing and business models</label
+      >
+    </div>
+    <div class="subtask">
+      <input type="checkbox" id="checkbox2" />
+      <label for="checkbox2"
+        >Outline a business model that works for our solution</label
+      >
+    </div>
+    <div class="subtask">
+      <input type="checkbox" id="checkbox3" />
+      <label for="checkbox3">
+        Talk to potential customers about our proposed solution and ask for fair
+        price expectancy
+      </label>
+    </div>
+  </div>
+  <div class="current-status">
+    <p>Current Status</p>
+    <select id="status" name="status">
+        <option value="volvo">To Do</option>
+        <option value="saab">In Progress</option>
+        <option value="fiat">Done</option>
+      </select>
+  </div>
+</div>

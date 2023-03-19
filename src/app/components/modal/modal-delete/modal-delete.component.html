@@ -1,0 +1,24 @@
+<div class="modal-delete" (click)="onClickDefault($event)">
+  <h5>
+    Delete this {{ settings.modal === "DeleteBoard" ? "board" : "task" }}?
+  </h5>
+  <p>
+    Are you sure you want to delete the
+    {{
+      settings.modal === "DeleteBoard"
+        ? "`Platform Launch` board?"
+        : "`Build settings UI` task and its subtasks?"
+    }}
+    <br />
+    This action
+    {{
+      settings.modal === "DeleteBoard"
+        ? "will remove all columns and cannot be reversed."
+        : "cannot be reversed."
+    }}
+  </p>
+  <div class="modal-footer">
+    <button class="btn-delete">Delete</button>
+    <button class="btn-cancel" (click)="closeModal()">Cancel</button>
+  </div>
+</div>

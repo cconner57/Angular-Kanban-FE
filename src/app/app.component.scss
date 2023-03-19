@@ -1,8 +1,9 @@
 .body {
   display: flex;
-  width: 100vw;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
   .main {
     display: flex;
     .column {
@@ -79,6 +80,15 @@
         width: 174px;
       }
     }
+  }
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(0, 0%, 0%, 0.5);
+    z-index: 5;
   }
 }
 

@@ -44,4 +44,38 @@
       </ng-template>
     </div>
   </div>
+  <div class="modal" *ngIf="settings.modal" (click)="closeModal()">
+    <container-element [ngSwitch]="settings.modal">
+      <app-modal-add-board
+        *ngSwitchCase="'AddBoard'"
+        [settings]="settings"
+      ></app-modal-add-board>
+      <app-modal-add-task
+        *ngSwitchCase="'AddTask'"
+        [settings]="settings"
+      ></app-modal-add-task>
+      <app-modal-delete
+        *ngSwitchCase="'DeleteBoard'"
+        [settings]="settings"
+        [selectedBoard]="selectedBoard"
+      ></app-modal-delete>
+      <app-modal-delete
+        *ngSwitchCase="'DeleteTask'"
+        [settings]="settings"
+      ></app-modal-delete>
+      <app-modal-edit-board
+        *ngSwitchCase="'EditBoard'"
+        [settings]="settings"
+        [selectedBoard]="selectedBoard"
+      ></app-modal-edit-board>
+      <app-modal-edit-task
+        *ngSwitchCase="'EditTask'"
+        [settings]="settings"
+      ></app-modal-edit-task>
+      <app-modal-view-task
+        *ngSwitchCase="'ViewTask'"
+        [settings]="settings"
+      ></app-modal-view-task>
+    </container-element>
+  </div>
 </div>

@@ -5,6 +5,12 @@
   width: 280px;
   padding: 1.4375rem 1rem;
   margin-bottom: 1.25rem;
+  &:hover {
+    cursor: pointer;
+    .task-item__title {
+      color: #635fc7;
+    }
+  }
   &__title {
     font-family: "Plus Jakarta Sans";
     font-style: normal;

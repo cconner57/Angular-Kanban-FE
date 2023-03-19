@@ -9,4 +9,8 @@ import { Task, Settings } from '../../interfaces';
 export class TaskItemComponent {
   @Input() task: Task | undefined;
   @Input() settings!: Settings;
+
+  viewTask() {
+    this.settings.modal = 'ViewTask';
+  }
 }

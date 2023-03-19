@@ -10,6 +10,18 @@
   <p class="header__title">{{ boardTitle }}</p>
   <div class="header__actions">
     <button>+ Add New Task</button>
-    <img src="assets/images/icon-vertical-ellipsis.svg" alt="actions" />
+    <img
+      src="assets/images/icon-vertical-ellipsis.svg"
+      alt="actions"
+      (mouseenter)="toggleHeaderMenu(true)"
+    />
+    <div
+      class="header__menu"
+      *ngIf="showHeaderMenu"
+      (mouseleave)="toggleHeaderMenu(false)"
+    >
+      <p (click)="openEditBoardModal()">Edit board</p>
+      <p (click)="openDeleteModal()">Delete board</p>
+    </div>
   </div>
 </div>

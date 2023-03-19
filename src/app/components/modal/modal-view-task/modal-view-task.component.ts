@@ -1,16 +1,23 @@
 import { Component, Input } from '@angular/core';
-import { Settings } from 'src/app/interfaces';
+import { Settings } from 'src/app/interfaces/settings';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-modal-view-task',
+  templateUrl: './modal-view-task.component.html',
+  styleUrls: ['./modal-view-task.component.scss']
 })
-export class HeaderComponent {
+export class ModalViewTaskComponent {
   @Input() settings!: Settings;
-  @Input() boardTitle!: string;
 
   showHeaderMenu = false;
+
+  onClickDefault(e: any) {
+    e.stopPropagation();
+  }
+
+  closeModal() {
+    this.settings.modal = null;
+  }
 
   toggleHeaderMenu(action: boolean) {
     this.showHeaderMenu = action;

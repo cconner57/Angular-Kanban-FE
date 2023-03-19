@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HttpService } from './services/http.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { Boards, Board } from './interfaces';
+import { Board } from './interfaces';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ export class AppComponent {
   settings = {
     navMenuExpanded: true,
     colorTheme: localStorage.getItem('colorTheme') || 'light',
+    modal: null,
   };
   boards: { [index: string]: any } = [
     { id: '0', title: 'Board 1', column: [] },
@@ -50,5 +51,9 @@ export class AppComponent {
       (board: Board) => board.id === boardId.id
     )[0];
     this.selectedBoard = filteredBoard;
+  }
+
+  closeModal() {
+    this.settings.modal = null;
   }
 }

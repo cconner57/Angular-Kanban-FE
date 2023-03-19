@@ -29,6 +29,7 @@ export class NavMenuComponent {
     };
     this.boards.push(newBoard);
     this.boardSelected.emit(newBoard);
+    this.settings.modal = 'AddBoard';
   }
 
   toggleMenu() {
