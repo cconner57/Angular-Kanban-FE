@@ -1,1 +1,45 @@
-<p>modal-edit-task works!</p>
+<div class="modal-edit" (click)="onClickDefault($event)">
+  <div class="task-header">
+    <h5>Edit Task</h5>
+  </div>
+  <div class="task-details">
+    <p>Title</p>
+    <input
+      class="board-input"
+      type="text"
+      id="boardName"
+      [value]="settings?.modalData?.title"
+    />
+    <p>Description</p>
+    <textarea
+      class="board-input"
+      type="text"
+      id="boardName"
+      placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
+    ></textarea>
+  </div>
+  <div class="subtask-list">
+    <p>Subtasks</p>
+    <div
+      class="subtask-input"
+      *ngFor="let task of settings?.modalData?.subTask"
+    >
+      <input
+        type="text"
+        id="subtaskName"
+        [value]="task.description || 'Description unavailable'"
+      />
+      <button class="btn-delete">&#x2715;</button>
+    </div>
+    <button class="btn-addSubtask">+ Add New Subtask</button>
+  </div>
+  <div class="task-status">
+    <p>Status</p>
+    <select id="status" name="status">
+      <option value="To Do">To Do</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Done">Done</option>
+    </select>
+  </div>
+  <button class="btn-save">Save Changes</button>
+</div>

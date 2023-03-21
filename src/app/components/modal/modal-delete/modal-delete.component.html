@@ -3,19 +3,9 @@
     Delete this {{ settings.modal === "DeleteBoard" ? "board" : "task" }}?
   </h5>
   <p>
-    Are you sure you want to delete the
-    {{
-      settings.modal === "DeleteBoard"
-        ? "`Platform Launch` board?"
-        : "`Build settings UI` task and its subtasks?"
-    }}
+    Are you sure you want to delete the {{ deleteTitle }}
     <br />
-    This action
-    {{
-      settings.modal === "DeleteBoard"
-        ? "will remove all columns and cannot be reversed."
-        : "cannot be reversed."
-    }}
+    This action {{ deleteWarning }}
   </p>
   <div class="modal-footer">
     <button class="btn-delete">Delete</button>

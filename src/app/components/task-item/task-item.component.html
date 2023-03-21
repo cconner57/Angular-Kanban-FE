@@ -8,6 +8,6 @@
 >
   <p class="task-item__title">{{ task?.title ?? "Title Unavailable" }}</p>
   <p class="task-item__subtitle">
-    0 of {{ task?.subTask?.length ?? 0 }} subtask
+    {{ completedSubtasks }} of {{ task?.subTask?.length ?? 0 }} subtask
   </p>
 </div>

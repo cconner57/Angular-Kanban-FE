@@ -4,12 +4,20 @@ import { Settings } from 'src/app/interfaces/settings';
 @Component({
   selector: 'app-modal-view-task',
   templateUrl: './modal-view-task.component.html',
-  styleUrls: ['./modal-view-task.component.scss']
+  styleUrls: ['./modal-view-task.component.scss'],
 })
 export class ModalViewTaskComponent {
   @Input() settings!: Settings;
 
   showHeaderMenu = false;
+  completedSubtasks = 0;
+
+  ngOnInit() {
+    this.completedSubtasks =
+      this.settings?.modalData?.subTask?.filter(
+        (subtask: any) => subtask.finished
+      ).length ?? 0;
+  }
 
   onClickDefault(e: any) {
     e.stopPropagation();
@@ -17,17 +25,20 @@ export class ModalViewTaskComponent {
 
   closeModal() {
     this.settings.modal = null;
+    this.settings.modalData = null;
   }
 
   toggleHeaderMenu(action: boolean) {
     this.showHeaderMenu = action;
   }
 
-  openEditBoardModal() {
-    this.settings.modal = 'EditBoard';
+  openEditTaskModal(e: MouseEvent) {
+    e.stopPropagation();
+    this.settings.modal = 'EditTask';
   }
 
-  openDeleteModal() {
-    this.settings.modal = 'DeleteBoard';
+  openDeleteModal(e: MouseEvent) {
+    e.stopPropagation();
+    this.settings.modal = 'DeleteTask';
   }
 }

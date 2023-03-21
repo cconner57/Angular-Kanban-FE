@@ -9,6 +9,7 @@ import { Settings } from 'src/app/interfaces';
 export class HeaderComponent {
   @Input() settings!: Settings;
   @Input() boardTitle!: string;
+  @Input() boardColumns!: number;
 
   showHeaderMenu = false;
 
@@ -22,5 +23,9 @@ export class HeaderComponent {
 
   openDeleteModal() {
     this.settings.modal = 'DeleteBoard';
+  }
+
+  addTask() {
+    this.settings.modal = 'AddTask';
   }
 }

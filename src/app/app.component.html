@@ -15,6 +15,7 @@
     <app-header
       [settings]="settings"
       [boardTitle]="selectedBoard?.title"
+      [boardColumns]="selectedBoard?.column.length"
     ></app-header>
     <div class="main">
       <ng-container *ngIf="selectedBoard.column.length > 0; else noTask">
@@ -33,13 +34,17 @@
           ></app-task-item>
         </div>
       </ng-container>
-      <div class="new-column" *ngIf="selectedBoard.column.length > 0">
+      <div
+        class="new-column"
+        *ngIf="selectedBoard.column.length > 0"
+        (click)="editBoard()"
+      >
         <p>+ New Column</p>
       </div>
       <ng-template #noTask>
         <div class="empty-board">
           <p>This board is empty. Create a new column to get started.</p>
-          <button>+ Add New Column</button>
+          <button (click)="editBoard()">+ Add New Column</button>
         </div>
       </ng-template>
     </div>

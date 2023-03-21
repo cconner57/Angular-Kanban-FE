@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HttpService } from './services/http.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { Board } from './interfaces';
+import { Board, Settings } from './interfaces';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,12 @@ import { Board } from './interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  settings = {
+  settings: Settings = {
     navMenuExpanded: true,
     colorTheme: localStorage.getItem('colorTheme') || 'light',
     modal: null,
+    modalData: null,
+    dataLoaded: false,
   };
   boards: { [index: string]: any } = [
     { id: '0', title: 'Board 1', column: [] },
@@ -55,5 +57,11 @@ export class AppComponent {
 
   closeModal() {
     this.settings.modal = null;
+    this.settings.modalData = null;
+  }
+
+  editBoard() {
+    console.log('func hit');
+    this.settings.modal = 'EditBoard';
   }
 }

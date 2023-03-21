@@ -9,7 +9,9 @@
 >
   <p class="header__title">{{ boardTitle }}</p>
   <div class="header__actions">
-    <button>+ Add New Task</button>
+    <button (click)="addTask()" [disabled]="boardColumns === 0">
+      + Add New Task
+    </button>
     <img
       src="assets/images/icon-vertical-ellipsis.svg"
       alt="actions"
