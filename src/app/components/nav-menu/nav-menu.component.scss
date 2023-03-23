@@ -1,3 +1,5 @@
+@import "../../app.component.scss";
+
 .nav-menu {
   min-height: 100vh;
   width: 20vw;
@@ -7,70 +9,54 @@
   justify-content: space-between;
   overflow: hidden;
   &__logo {
-    margin-left: 2rem;
-    margin-bottom: 3.375rem;
+    margin: 0 0 3.375rem 2rem;
   }
   &__title {
-    margin-left: 2rem;
-    margin-bottom: 1.1875rem;
-    font-family: "Plus Jakarta Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.75rem;
-    line-height: 0.9375rem;
-    letter-spacing: 0.15rem;
+    @include headingS;
     color: #828fa3;
+    margin: 0 0 1.1875rem 2rem;
   }
   &__boards {
     .board {
-      display: flex;
       align-items: center;
-      padding-left: 2rem;
-      height: 48px;
       cursor: pointer;
+      display: flex;
+      height: 3rem;
+      padding-left: 2rem;
       img {
         height: 1rem;
         width: 1rem;
       }
       p {
-        color: #828fa3;
-        font-family: "Plus Jakarta Sans";
-        font-size: 0.9375rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 1.1875rem;
+        @include headingM;
+        color: $lightGrey;
         margin-left: 1rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: 200px;
+        width: 12.5rem;
       }
       &:hover {
-        background: hsl(0, 0%, 100%);
-        border-radius: 0px 100px 100px 0px;
+        border-radius: 0rem 6.25rem 6.25rem 0rem;
         img {
           filter: brightness(0) saturate(100%) invert(37%) sepia(97%)
             saturate(678%) hue-rotate(211deg) brightness(84%) contrast(83%);
         }
         p {
-          color: hsl(242, 48%, 58%);
+          color: $slateBlue;
         }
       }
     }
   }
   &__add {
-    width: 276px;
-    height: 48px;
-    display: flex;
+    @include headingM;
     align-items: center;
-    font-family: "Plus Jakarta Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.9375rem;
-    line-height: 1.1875rem;
-    color: #635fc7;
-    padding-left: 2rem;
+    color: $slateBlue;
     cursor: pointer;
+    display: flex;
+    height: 3rem;
+    padding-left: 2rem;
+    width: 17.25rem;
     img {
       height: 1rem;
       width: 1rem;
@@ -85,23 +71,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 1.9375rem;
-    height: 1.1875rem;
-    width: 7.9375rem;
+    height: 3rem;
     margin-top: 1.375rem;
     cursor: pointer;
+    &:hover {
+      border-radius: 0rem 6.25rem 6.25rem 0rem;
+      img {
+        filter: brightness(0) saturate(100%) invert(37%) sepia(97%)
+          saturate(678%) hue-rotate(211deg) brightness(84%) contrast(83%);
+      }
+      p {
+        color: $slateBlue;
+      }
+    }
     img {
       height: 1rem;
       width: 1.125rem;
     }
     p {
-      font-family: "Plus Jakarta Sans";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 0.9375rem;
-      line-height: 1.1875rem;
-      color: #828fa3;
+      @include headingM;
+      color: $lightGrey;
       margin-left: 0.9375rem;
+      width: 12.5rem;
     }
   }
 }
@@ -110,25 +101,25 @@
   position: absolute;
   bottom: 32px;
   left: 0;
-  width: 56px;
-  height: 48px;
-  background-color: #635fc7;
-  border-radius: 0px 100px 100px 0px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background-color: $slateBlue;
+  border-radius: 0rem 6.25rem 6.25rem 0rem;
   cursor: pointer;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  width: 3.5rem;
   img {
-    width: 16px;
-    height: 10.22px;
+    width: 1rem;
+    height: 0.6388rem;
   }
 }
 
 .nav-menu--small {
   position: absolute;
-  min-height: 97px;
-  width: 15vw;
+  min-height: 6.0625rem;
   padding: 2rem 0 0;
+  width: 15vw;
   img {
     margin-bottom: 2rem;
   }
@@ -139,35 +130,53 @@
   align-items: center;
   padding-left: 2rem;
   width: 100%;
-  height: 48px;
+  height: 3rem;
   cursor: pointer;
-  background: #635fc7;
-  border-radius: 0px 100px 100px 0px;
+  background: $slateBlue;
+  border-radius: 0rem 6.25rem 6.25rem 0rem;
   img {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
       hue-rotate(93deg) brightness(103%) contrast(103%);
   }
   p {
-    color: #fff;
-    font-family: "Plus Jakarta Sans";
-    font-size: 0.9375rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.1875rem;
+    @include headingM;
+    color: $white;
     margin-left: 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 200px;
+    width: 12.5rem;
   }
 }
 
 .lightTheme {
-  background-color: #ffffff;
-  border-right: 1px solid #e2ebfc;
+  background-color: $white;
+  border-right: 1px solid $lavender;
+  .board {
+    &:hover {
+      background: $slateBlue;
+      opacity: 0.1;
+    }
+  }
+  .nav-menu__sidebar-toggle {
+    &:hover {
+      background: $slateBlue;
+      opacity: 0.1;
+    }
+  }
 }
 
 .darkTheme {
-  background-color: #2b2c37;
-  border-right: 1px solid #3e3f4e;
+  background-color: $lightBlack;
+  border-right: 1px solid $grey;
+  .board {
+    &:hover {
+      background: $white;
+    }
+  }
+  .nav-menu__sidebar-toggle {
+    &:hover {
+      background: $white;
+    }
+  }
 }

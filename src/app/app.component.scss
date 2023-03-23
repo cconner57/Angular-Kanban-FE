@@ -1,3 +1,75 @@
+// Colors
+$black: hsl(235, 16%, 15%);
+$darkGreen: hsl(237, 100%, 4%);
+$grey: hsl(236, 11%, 27%);
+$lavender: hsl(220, 68%, 94%);
+$lavenderBlue: hsl(243, 100%, 82%);
+$lightBlack: hsl(235, 11%, 19%);
+$lightGrey: hsl(216, 15%, 57%);
+$lightLavender: hsl(218, 73%, 97%);
+$pink: hsl(0, 100%, 80%);
+$red: hsl(0, 78%, 63%);
+$slateBlue: hsl(242, 48%, 58%);
+$white: hsl(0, 0%, 100%);
+
+// Font
+$font: "Plus Jakarta Sans", sans-serif;
+
+// Typography
+@mixin headingXL {
+  font-family: $font;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 30px;
+}
+
+@mixin headingL {
+  font-family: $font;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 23px;
+}
+
+@mixin headingM {
+  font-family: $font;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 19px;
+}
+
+@mixin headingS {
+  font-family: $font;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  line-height: 15px;
+}
+
+@mixin bodyL {
+  font-family: $font;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  line-height: 23px;
+}
+
+@mixin bodyM {
+  font-family: $font;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 15px;
+}
+
 .body {
   display: flex;
   height: 100vh;
@@ -41,7 +113,7 @@
       align-items: center;
       cursor: pointer;
       p {
-        font-family: "Plus Jakarta Sans";
+        font-family: $font;
         font-style: normal;
         font-weight: 700;
         font-size: 24px;
@@ -57,7 +129,7 @@
       width: 100%;
       min-height: 88vh;
       p {
-        font-family: "Plus Jakarta Sans";
+        font-family: $font;
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
@@ -71,7 +143,7 @@
         border-radius: 24px;
         color: #ffffff;
         cursor: pointer;
-        font-family: "Plus Jakarta Sans";
+        font-family: $font;
         font-size: 15px;
         font-style: normal;
         font-weight: 700;

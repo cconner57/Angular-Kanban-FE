@@ -1,67 +1,58 @@
+@import "../../app.component.scss";
+
 .header {
   display: flex;
   justify-content: space-between;
   &__title {
-    font-family: "Plus Jakarta Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    margin: 29px 0 37px 24px;
+    @include headingXL;
+    margin: 1.8125rem 0 2.3125rem 1.5rem;
   }
   &__actions {
-    position: relative;
-    display: flex;
     align-items: center;
-    margin: 20px 32px 28px 0;
+    display: flex;
+    margin: 1.25rem 2rem 1.75rem 0;
+    position: relative;
     button {
-      background-color: #635fc7;
-      border-radius: 24px;
-      color: #ffffff;
+      @include headingM;
+      background-color: $slateBlue;
+      border-radius: 1.5rem;
+      color: $white;
       cursor: pointer;
-      font-family: "Plus Jakarta Sans";
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 700;
-      height: 48px;
-      line-height: 19px;
-      margin-right: 19px;
-      width: 164px;
+      height: 3rem;
+      margin-right: 1.1875rem;
+      width: 10.25rem;
       &:disabled {
-        background-color: hsla(242, 48%, 58%, 0.25);
+        background-color: $slateBlue;
         cursor: not-allowed;
+        opacity: 0.25;
       }
     }
     img {
       cursor: pointer;
-      padding: 5px;
+      padding: 0.3125rem;
     }
     .header__menu {
       position: absolute;
       top: 10px;
       right: 20px;
-      width: 192px;
-      height: 94px;
-      background: #20212c;
-      border-radius: 8px;
-      padding: 16px;
+      background: $black;
+      border-radius: 0.5rem;
+      border: 1px solid $grey;
       display: flex;
       flex-direction: column;
+      height: 5.875rem;
       justify-content: space-between;
-      border: 1px solid #3e3f4e;
+      padding: 1rem;
+      width: 12rem;
       p {
-        font-family: "Plus Jakarta Sans";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 19px;
+        @include headingM;
         color: #828fa3;
         cursor: pointer;
         &:hover {
           &:first-child {
-            color: #ffffff;
+            color: $white;
           }
-          color: hsl(0, 78%, 63%);
+          color: $red;
         }
       }
     }
@@ -69,15 +60,15 @@
 }
 
 .lightTheme {
-  background-color: #ffffff;
+  background-color: $white;
   p {
-    color: #000000;
+    color: $black;
   }
 }
 
 .darkTheme {
-  background-color: #2b2c37;
+  background-color: $lightBlack;
   p {
-    color: #ffffff;
+    color: $white;
   }
 }

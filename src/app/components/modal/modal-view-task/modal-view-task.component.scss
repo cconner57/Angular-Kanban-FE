@@ -1,18 +1,20 @@
+@import "../../../app.component.scss";
+
 .modal-edit {
-  background: hsl(235, 12%, 19%);
-  border-radius: 6px;
-  width: 480px;
-  height: 481px;
-  padding: 32px;
+  background: $lightBlack;
+  border-radius: 0.375rem;
+  height: 30.0625rem;
+  padding: 2rem;
+  width: 30rem;
   position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
   z-index: 10;
   .task-header {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     img {
       cursor: pointer;
     }
@@ -20,106 +22,82 @@
       position: absolute;
       top: 10px;
       right: -170px;
-      width: 192px;
-      height: 94px;
-      background: #20212c;
-      border-radius: 8px;
-      padding: 16px;
+      background: $black;
+      border-radius: 0.5rem;
+      border: 1px solid $grey;
       display: flex;
       flex-direction: column;
+      height: 5.875rem;
       justify-content: space-between;
-      border: 1px solid #3e3f4e;
+      padding: 1rem;
+      width: 12rem;
       p {
-        font-family: "Plus Jakarta Sans";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 19px;
-        color: #828fa3;
+        @include headingM;
+        color: $lightGrey;
         cursor: pointer;
         &:hover {
           &:first-child {
-            color: #ffffff;
+            color: $white;
           }
-          color: hsl(0, 78%, 63%);
+          color: $red;
         }
       }
     }
   }
   .subtask-list {
     p:first-child {
-      font-family: "Plus Jakarta Sans";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 15px;
-      color: #ffffff;
-      margin: 24px 0 16px;
+      @include bodyM;
+      color: $white;
+      margin: 1.5rem 0 1rem;
     }
     .subtask {
-      display: flex;
-      background: #20212c;
-      border-radius: 4px;
       align-items: center;
-      margin-bottom: 8px;
-      padding: 12px;
+      background: $black;
+      border-radius: 0.25rem;
+      display: flex;
+      margin-bottom: 0.5rem;
+      padding: 0.75rem;
       input[type="checkbox"] {
-        background: #635fc7;
-        border-radius: 2px;
-        width: 16px;
-        height: 16px;
+        background: $slateBlue;
+        border-radius: 0.125rem;
         cursor: pointer;
+        height: 1rem;
+        width: 1rem;
       }
       label {
-        font-family: "Plus Jakarta Sans";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 15px;
-        color: #ffffff;
-        margin-left: 16px;
+        @include bodyM;
+        color: $white;
+        margin-left: 1rem;
         cursor: pointer;
       }
       input[type="checkbox"]:checked + label {
-        font-family: "Plus Jakarta Sans";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 15px;
+        @include bodyM;
+        color: $lightGrey;
+        margin-left: 1rem;
         text-decoration-line: line-through;
-        color: hsl(0, 0%, 50%);
-        margin-left: 16px;
       }
     }
   }
   .current-status {
     position: relative;
     p:first-child {
-      font-family: "Plus Jakarta Sans";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 15px;
-      color: hsl(0, 0%, 100%);
-      margin: 24px 0 8px;
+      @include bodyM;
+      color: $white;
+      margin: 1.5rem 0 0.5rem;
     }
     select {
-      position: relative;
+      @include bodyL;
       appearance: none;
       background-color: transparent;
-      margin: 0;
-      cursor: pointer;
-      padding: 8px 16px;
+      border-radius: 0.25rem;
       border: 1px solid rgba(130, 143, 163, 0.25);
-      border-radius: 4px;
-      height: 40px;
-      width: 416px;
-      font-family: "Plus Jakarta Sans";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 23px;
-      color: hsl(0, 0%, 100%);
+      color: $white;
+      cursor: pointer;
+      height: 2.5rem;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      position: relative;
+      width: 26rem;
       z-index: 5;
     }
     &::before {
@@ -127,65 +105,53 @@
       position: absolute;
       right: 18px;
       top: 34px;
-      width: 10px;
-      height: 10px;
-      border-right: 3px solid hsl(242, 48%, 58%);
-      border-bottom: 3px solid hsl(242, 48%, 58%);
+      border-bottom: 3px solid $slateBlue;
+      border-right: 3px solid $slateBlue;
+      height: 0.625rem;
       transform: rotate(-315deg);
+      width: 0.625rem;
       z-index: 10;
     }
   }
   h5 {
-    font-family: "Plus Jakarta Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-    color: hsl(0, 0%, 100%);
+    @include headingL;
+    color: $white;
   }
   h6 {
-    font-family: "Plus Jakarta Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 23px;
-    color: #828fa3;
-    margin-top: 24px;
+    @include bodyL;
+    color: $lightGrey;
+    margin-top: 1.5rem;
   }
   .modal-footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 416px;
-    margin-top: 16px;
+    margin-top: 1rem;
+    width: 26rem;
     .btn-addColumn {
-      background-color: hsl(0, 0%, 100%);
-      color: hsl(242, 48%, 58%);
-      width: 416px;
-      margin-bottom: 24px;
+      background-color: $white;
+      color: $slateBlue;
+      margin-bottom: 1.5rem;
+      width: 26rem;
       &:hover {
-        background-color: hsl(0, 0%, 90%);
+        background-color: $lightLavender;
       }
     }
     .btn-save {
-      background-color: hsl(242, 48%, 58%);
-      color: hsl(0, 0%, 100%);
-      width: 416px;
+      background-color: $slateBlue;
+      color: $white;
+      width: 26rem;
       &:hover {
-        background-color: hsl(242, 48%, 48%);
+        background-color: $lavenderBlue;
       }
     }
     button {
-      border-radius: 24px;
-      color: hsl(0, 0%, 100%);
+      @include headingM;
+      border-radius: 1.5rem;
+      color: $white;
       cursor: pointer;
-      font-family: "Plus Jakarta Sans";
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 700;
-      height: 40px;
-      line-height: 19px;
-      width: 200px;
+      height: 2.5rem;
+      width: 12.5rem;
     }
   }
 }
