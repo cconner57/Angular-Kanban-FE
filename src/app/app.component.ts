@@ -12,7 +12,7 @@ import { Board, Settings } from './interfaces';
 export class AppComponent {
   settings: Settings = {
     navMenuExpanded: true,
-    colorTheme: localStorage.getItem('colorTheme') || 'light',
+    colorTheme: localStorage.getItem('colorTheme') || 'dark',
     modal: null,
     modalData: null,
     dataLoaded: false,
