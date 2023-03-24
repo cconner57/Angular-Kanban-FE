@@ -55,12 +55,12 @@
     margin-top: 1rem;
     width: 26rem;
     .btn-addColumn {
-      background-color: rgba(99, 95, 199, 0.1);
+      background-color: $white;
       color: $slateBlue;
       margin-bottom: 1.5rem;
       width: 26rem;
       &:hover {
-        background-color: $lavenderBlue;
+        background-color: $lightGrey;
       }
     }
     .btn-save {

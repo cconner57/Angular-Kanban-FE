@@ -56,29 +56,20 @@
     margin-top: 1rem;
     width: 26rem;
     .btn-addColumn {
-      background-color: $white;
-      color: $slateBlue;
+      @include button($slateBlue, $white, 26rem);
       margin-bottom: 1.5rem;
-      width: 26rem;
       &:hover {
         background-color: $white;
       }
     }
     .btn-save {
-      background-color: $slateBlue;
-      color: $white;
-      width: 26rem;
+      @include button($slateBlue, $white, 26rem);
       &:hover {
         background-color: $lavenderBlue;
       }
     }
     button {
-      @include headingM;
-      border-radius: 1.5rem;
-      color: $white;
-      cursor: pointer;
-      height: 2.5rem;
-      width: 12.5rem;
+      @include button($slateBlue, $white);
     }
   }
 }
@@ -95,7 +86,7 @@
     color: $black;
   }
   p {
-    color: #828FA3;
+    color: #828fa3;
   }
   input {
     border: 1px solid hsla(216, 15%, 57%, 0.25);

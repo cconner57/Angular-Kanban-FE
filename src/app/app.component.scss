@@ -70,6 +70,16 @@ $font: "Plus Jakarta Sans", sans-serif;
   line-height: 15px;
 }
 
+@mixin button($background, $color, $width: 12.5rem) {
+  @include headingM;
+  background-color: $background;
+  border-radius: 1.5rem;
+  color: $color;
+  cursor: pointer;
+  height: 2.5rem;
+  width: $width;
+}
+
 .body {
   display: flex;
   height: 100vh;

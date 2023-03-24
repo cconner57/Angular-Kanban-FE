@@ -36,13 +36,7 @@
       }
     }
     button {
-      @include headingM;
-      background-color: $slateBlue;
-      border-radius: 1.5rem;
-      color: $white;
-      cursor: pointer;
-      height: 2.5rem;
-      width: 12.5rem;
+      @include button($slateBlue, $white);
     }
   }
 }

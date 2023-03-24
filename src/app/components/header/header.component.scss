@@ -13,14 +13,8 @@
     margin: 1.25rem 2rem 1.75rem 0;
     position: relative;
     button {
-      @include headingM;
-      background-color: $slateBlue;
-      border-radius: 1.5rem;
-      color: $white;
-      cursor: pointer;
-      height: 3rem;
+      @include button($slateBlue, $white);
       margin-right: 1.1875rem;
-      width: 10.25rem;
       &:disabled {
         background-color: $slateBlue;
         cursor: not-allowed;
