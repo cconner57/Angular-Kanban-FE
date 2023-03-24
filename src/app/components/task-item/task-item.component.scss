@@ -10,6 +10,7 @@
   &:hover {
     cursor: pointer;
     .task-item__title {
+      transition: color .15s ease-in-out;
       color: $slateBlue;
     }
   }
