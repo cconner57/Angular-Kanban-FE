@@ -42,9 +42,6 @@
           filter: brightness(0) saturate(100%) invert(37%) sepia(97%)
             saturate(678%) hue-rotate(211deg) brightness(84%) contrast(83%);
         }
-        p {
-          color: $slateBlue;
-        }
       }
     }
   }
@@ -152,15 +149,19 @@
 .lightTheme {
   background-color: $white;
   border-right: 1px solid $lavender;
-  .board {
-    &:hover {
-      background: $slateBlue;
-      opacity: 0.1;
+  .nav-menu__boards {
+    .board {
+      &:hover {
+        background-color: hsla(242, 48%, 58%, 0.1);
+        p {
+          color: $slateBlue;
+        }
+      }
     }
   }
   .nav-menu__sidebar-toggle {
     &:hover {
-      background: $slateBlue;
+      background-color: $slateBlue;
       opacity: 0.1;
     }
   }
@@ -169,14 +170,22 @@
 .darkTheme {
   background-color: $lightBlack;
   border-right: 1px solid $grey;
-  .board {
-    &:hover {
-      background: $white;
+  .nav-menu__boards {
+    .board {
+      &:hover {
+        background-color: $white;
+        p {
+          color: $slateBlue;
+        }
+      }
     }
   }
   .nav-menu__sidebar-toggle {
     &:hover {
-      background: $white;
+      background-color: $white;
+      p {
+        color: $slateBlue;
+      }
     }
   }
 }
