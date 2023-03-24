@@ -1,28 +1,35 @@
-<div class="modal-edit" (click)="onClickDefault($event)">
-    <h5>Add New Board</h5>
-    <div>
-      <p>Board Name</p>
-      <input
-        class="board-input"
-        type="text"
-        id="boardName"
-        [value]="selectedBoard.title"
-      />
+<div
+  class="modal-edit"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+  (click)="onClickDefault($event)"
+>
+  <h5>Add New Board</h5>
+  <div>
+    <p>Board Name</p>
+    <input
+      class="board-input"
+      type="text"
+      id="boardName"
+      placeholder="e.g. Web Design"
+      [value]="selectedBoard.title"
+    />
+  </div>
+  <div>
+    <p>Board Columns</p>
+    <div class="column-input">
+      <input type="text" id="columnName" value="ToDo" />
+      <button class="btn-delete">&#x2715;</button>
     </div>
-    <div>
-      <p>Board Columns</p>
-      <div class="column-input">
-        <input type="text" id="columnName" value="ToDo" />
-        <button class="btn-delete">&#x2715;</button>
-      </div>
-      <div class="column-input">
-        <input type="text" id="columnName" value="Doing" />
-        <button class="btn-delete">&#x2715;</button>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn-addColumn">+ Add New Column</button>
-      <button class="btn-save">Create New Board</button>
+    <div class="column-input">
+      <input type="text" id="columnName" value="Doing" />
+      <button class="btn-delete">&#x2715;</button>
     </div>
   </div>
-  
+  <div class="modal-footer">
+    <button class="btn-addColumn">+ Add New Column</button>
+    <button class="btn-save">Create New Board</button>
+  </div>
+</div>

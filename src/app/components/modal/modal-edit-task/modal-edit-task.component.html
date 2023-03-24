@@ -1,4 +1,11 @@
-<div class="modal-edit" (click)="onClickDefault($event)">
+<div
+  class="modal-edit"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+  (click)="onClickDefault($event)"
+>
   <div class="task-header">
     <h5>Edit Task</h5>
   </div>

@@ -1,4 +1,11 @@
-<div class="modal-edit" (click)="onClickDefault($event)">
+<div
+  class="modal-edit"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+  (click)="onClickDefault($event)"
+>
   <h5>Edit Board</h5>
   <div>
     <p>Board Name</p>

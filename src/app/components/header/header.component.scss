@@ -64,11 +64,23 @@
   p {
     color: $black;
   }
+  .header__actions {
+    .header__menu {
+      background: $white;
+      border: 1px solid $lightGrey;
+    }
+  }
 }
 
 .darkTheme {
   background-color: $lightBlack;
   p {
     color: $white;
+  }
+  .header__actions {
+    .header__menu {
+      background: $black;
+      border: 1px solid $grey;
+    }
   }
 }

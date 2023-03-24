@@ -1,4 +1,11 @@
-<div class="modal-edit" (click)="onClickDefault($event)">
+<div
+  class="modal-edit"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+  (click)="onClickDefault($event)"
+>
   <div class="task-header">
     <h5>{{ settings.modalData?.title }}</h5>
     <img
@@ -30,7 +37,9 @@
       *ngFor="let task of settings?.modalData?.subTask; let i = index"
     >
       <input type="checkbox" [id]="'checkbox' + i" [checked]="task.finished" />
-      <label [for]="'checkbox' + i">{{ task?.description || 'Description unavailable' }}</label>
+      <label [for]="'checkbox' + i">{{
+        task?.description || "Description unavailable"
+      }}</label>
     </div>
   </div>
   <div class="current-status">

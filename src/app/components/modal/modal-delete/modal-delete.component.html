@@ -1,4 +1,11 @@
-<div class="modal-delete" (click)="onClickDefault($event)">
+<div
+  class="modal-delete"
+  [ngClass]="{
+    lightTheme: settings.colorTheme === 'light',
+    darkTheme: settings.colorTheme === 'dark'
+  }"
+  (click)="onClickDefault($event)"
+>
   <h5>
     Delete this {{ settings.modal === "DeleteBoard" ? "board" : "task" }}?
   </h5>
