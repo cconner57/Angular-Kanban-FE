@@ -16,8 +16,9 @@
   }
   h5 {
     @include headingL;
+    margin-bottom: 1.5rem;
   }
-  p {
+  label, p {
     @include bodyM;
     margin-top: 1.5rem;
   }
@@ -89,7 +90,7 @@
   h5 {
     color: $black;
   }
-  p {
+  label, p {
     color: #828fa3;
   }
   .column-input {
@@ -107,7 +108,7 @@
   h5 {
     color: $white;
   }
-  p {
+  label, p {
     color: $white;
   }
   .column-input {

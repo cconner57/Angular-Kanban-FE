@@ -305,7 +305,6 @@ export class AppComponent {
 
   deleteItem(item: [string, any]) {
     if (item[0] === 'Board') {
-      console.log('weird func');
       this.boards = this.boards.filter(
         (board: Board) => board.id !== item[1].id
       );

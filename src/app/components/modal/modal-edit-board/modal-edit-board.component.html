@@ -1,5 +1,6 @@
-<div
+<form
   class="modal-edit"
+  [formGroup]="editBoardForm"
   [ngClass]="{
     lightTheme: settings.colorTheme === 'light',
     darkTheme: settings.colorTheme === 'dark'
@@ -8,23 +9,23 @@
 >
   <h5>Edit Board</h5>
   <div>
-    <p>Board Name</p>
+    <label for="board-name">Board Name</label>
     <input
       class="board-input"
       type="text"
-      id="boardName"
-      [value]="selectedBoard.title"
+      id="board-name"
+      formControlName="boardName"
     />
   </div>
   <div>
     <p>Board Columns</p>
-    <div class="column-input" *ngFor="let list of selectedBoard.column">
-      <input type="text" id="columnName" [value]="list.title" />
-      <button class="btn-delete">&#x2715;</button>
+    <div class="column-input" *ngFor="let column of filteredColumns">
+      <input type="text" id="column-Name" formControlName="columnName" />
+      <button class="btn-delete" (click)="deleteColumn(column.id)">&#x2715;</button>
     </div>
   </div>
   <div class="modal-footer">
     <button class="btn-addColumn">+ Add New Column</button>
-    <button class="btn-save" (click)="closeModal()">Save Changes</button>
+    <button class="btn-save" (click)="saveChanges()">Save Changes</button>
   </div>
-</div>
+</form>
