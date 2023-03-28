@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Settings, Board } from 'src/app/interfaces';
 
 @Component({
@@ -7,8 +7,11 @@ import { Settings, Board } from 'src/app/interfaces';
   styleUrls: ['./modal-delete.component.scss'],
 })
 export class ModalDeleteComponent {
+  @Output() deleteItemEvent = new EventEmitter();
+
   @Input() settings!: Settings;
   @Input() selectedBoard!: Board;
+  @Input() boards!: any;
 
   deleteTitle = '';
   deleteWarning = '';
@@ -31,5 +34,16 @@ export class ModalDeleteComponent {
 
   closeModal() {
     this.settings.modal = null;
+  }
+
+  deleteItem() {
+    if (this.settings.modal === 'DeleteBoard') {
+      this.deleteItemEvent.emit(['Board', this.selectedBoard]);
+    }
+    if (this.settings.modal === 'DeleteTask') {
+      this.deleteItemEvent.emit(['Task', this.settings.modalData]);
+    }
+    // this.settings.modalData = null;
+    this.closeModal();
   }
 }

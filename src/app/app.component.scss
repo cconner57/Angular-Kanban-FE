@@ -99,8 +99,18 @@ $font: "Plus Jakarta Sans", sans-serif;
         .circle {
           width: 15px;
           height: 15px;
+          position: relative;
           border-radius: 50%;
           margin-right: 12px;
+          overflow: hidden;
+          input {
+            cursor: pointer;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            height: 30px;
+            width: 30px;
+          }
         }
         p {
           font-family: "Plus Jakarta Sans";
@@ -113,21 +123,21 @@ $font: "Plus Jakarta Sans", sans-serif;
       }
     }
     .new-column {
-      height: 75vh;
-      width: 17.5rem;
-      margin-top: 63px;
-      border-radius: 6px;
-      margin-left: 24px;
-      display: flex;
-      justify-content: center;
       align-items: center;
+      border-radius: 0.375rem;
       cursor: pointer;
+      display: flex;
+      height: 75vh;
+      justify-content: center;
+      margin-left: 1.5rem;
+      margin-top: 3.9375rem;
+      width: 17.5rem;
       p {
         font-family: $font;
         font-style: normal;
         font-weight: 700;
-        font-size: 24px;
-        line-height: 30px;
+        font-size: 1.5rem;
+        line-height: 1.875rem;
         text-align: center;
       }
     }
@@ -143,23 +153,23 @@ $font: "Plus Jakarta Sans", sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
-        line-height: 23px;
+        line-height: 1.4375rem;
         text-align: center;
-        color: #828fa3;
-        margin-bottom: 32px;
+        color: hsl(216, 15%, 57%);
+        margin-bottom: 2rem;
       }
       button {
-        background-color: #635fc7;
-        border-radius: 24px;
-        color: #ffffff;
+        background-color: hsl(242, 48%, 58%);
+        border-radius: 1.5rem;
+        color: hsl(0, 0%, 100%);
         cursor: pointer;
         font-family: $font;
-        font-size: 15px;
+        font-size: 0.9375rem;
         font-style: normal;
         font-weight: 700;
-        height: 48px;
-        line-height: 19px;
-        width: 174px;
+        height: 3rem;
+        line-height: 1.1875rem;
+        width: 10.875rem;
       }
     }
   }
@@ -175,39 +185,53 @@ $font: "Plus Jakarta Sans", sans-serif;
 }
 
 .darkTheme {
-  background-color: #20212c;
+  background-color: hsl(235, 16%, 15%);
   p {
-    color: #828fa3;
+    color: hsl(216, 15%, 57%);
   }
   .new-column {
-    background: linear-gradient(
+    background-image: linear-gradient(
       180deg,
       rgba(43, 44, 55, 0.25) 0%,
       rgba(43, 44, 55, 0.125) 100%
     );
+    &:hover {
+      background-image: linear-gradient(
+        180deg,
+        rgba(43, 44, 55, 0.5) 0%,
+        rgba(43, 44, 55, 0.25) 100%
+      );
+    }
   }
 }
 
 .lightTheme {
-  background-color: #f4f7fd;
+  background-color: hsl(220, 69%, 97%);
   p {
-    color: #828fa3;
+    color: hsl(216, 15%, 57%);
   }
   .ne .column {
     &__title {
       p {
-        color: #000112;
+        color: hsl(237, 100%, 4%);
       }
     }
   }
   .new-column {
     background: linear-gradient(
       180deg,
-      #e9effa 0%,
+      hsl(219, 63%, 95%) 0%,
       rgba(233, 239, 250, 0.5) 100%
     );
+    &:hover {
+      background: linear-gradient(
+        180deg,
+        hsl(219, 63%, 85%) 0%,
+        rgba(233, 239, 250, 0.75) 100%
+      );
+    }
     p {
-      color: #828fa3;
+      color: hsl(216, 15%, 57%);
     }
   }
 }

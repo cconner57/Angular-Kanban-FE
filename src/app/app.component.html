@@ -14,17 +14,20 @@
   <div>
     <app-header
       [settings]="settings"
-      [boardTitle]="selectedBoard?.title"
-      [boardColumns]="selectedBoard?.column.length"
+      [boardTitle]="selectedBoard.title"
+      [boardColumns]="selectedBoard.column.length"
     ></app-header>
     <div class="main">
       <ng-container *ngIf="selectedBoard.column.length > 0; else noTask">
         <div class="column" *ngFor="let list of selectedBoard.column">
           <div class="column__title">
-            <div
-              class="circle"
-              [ngStyle]="{ 'background-color': list.color }"
-            ></div>
+            <div class="circle">
+              <input
+                type="color"
+                [value]="list.color"
+                (change)="changeColor(selectedBoard.column, $event)"
+              />
+            </div>
             <p>{{ list?.title }} ({{ list?.task?.length }})</p>
           </div>
           <app-task-item
@@ -63,10 +66,13 @@
         *ngSwitchCase="'DeleteBoard'"
         [settings]="settings"
         [selectedBoard]="selectedBoard"
+        [boards]="boards"
+        (deleteItemEvent)="deleteItem($event)"
       ></app-modal-delete>
       <app-modal-delete
         *ngSwitchCase="'DeleteTask'"
         [settings]="settings"
+        (deleteItemEvent)="deleteItem($event)"
       ></app-modal-delete>
       <app-modal-edit-board
         *ngSwitchCase="'EditBoard'"

@@ -1,5 +1,5 @@
 export interface Boards {
-  board?: Board[] | null;
+  board: Board[];
 }
 
 export interface Board {
@@ -23,6 +23,7 @@ export interface Task {
 }
 
 export interface SubTask {
+  id: string;
   description: string;
   finished: boolean;
 }
